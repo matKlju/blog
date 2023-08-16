@@ -1,32 +1,31 @@
 from django.shortcuts import render
-from .forms import PostForm
 from .models import Post
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
-def PostList(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
+class PostListView(ListView):
+    model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
 
-def PostDetail(request, slug):
-    post = Post.objects.get(slug=slug)
-    return render(request, 'blog/post_detail.html', {'post': post})
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'blog/post_detail.html'
+    context_object_name = 'post'
 
-def PostCreate(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save()
-            return redirect('post_detail', slug=post.slug)
-    else:
-        form = PostForm()
-    return render(request, 'blog/post_create.html', {'form': form})
+class PostCreateView(CreateView):
+    model = Post
+    template_name = 'blog/post_form.html'
+    fields = ['title', 'content']
+    success_url = reverse_lazy('blog:post_list')
 
-def PostEdit(request, slug):
-    post = Post.objects.get(slug=slug)
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect('post_detail', slug=post.slug)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = 'blog/post_form.html'
+    fields = ['title', 'content']
+    success_url = reverse_lazy('blog:post_list')
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'blog/post_confirm_delete.html'
+    success_url = reverse_lazy('blog:post_list')
