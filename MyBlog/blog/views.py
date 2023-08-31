@@ -1,8 +1,15 @@
+from django.views.generic import ListView
+from .models import Post
+
+class PostListView(ListView):
+    model = Post
+    
+
+"""
 from django.shortcuts import render
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.http import HttpResponse
 
 
 class PostListView(ListView):
@@ -31,3 +38,4 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('blog:post_list')
+"""

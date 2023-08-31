@@ -25,11 +25,27 @@ Delete a post
 
 5. Views and Templates:
 Create views for each of the above URLs:
-List View: Display all the posts with their titles. Each title should be a clickable link that takes the user to the detail view of that post.
-Detail View: Display the title, content, and creation date of a single post.
-Create View: Display a form where users can enter the title and content of a new post. Once submitted, the post should be saved to the database and the user should be redirected to the list view.
-Edit View: Display a form pre-filled with the post's current title and content. Users can edit and submit the form. Once submitted, the post should be updated in the database and the user should be redirected to the detail view of that post.
-Delete View: Ask the user for confirmation before deleting a post. Once confirmed, the post should be removed from the database and the user should be redirected to the list view.
+List View: 
+Display all the posts with their titles. Each title should be a clickable link that takes the user to the detail view of that post.
+
+Detail View: 
+Display the title, content, and creation date of a single post.
+
+Create View: 
+Display a form where users can enter the title and content of a new post. 
+Once submitted, the post should be saved to the database and the user 
+should be redirected to the list view.
+
+Edit View: 
+Display a form pre-filled with the post's current title and content. 
+Users can edit and submit the form. Once submitted, the post should be 
+updated in the database and the user should be redirected to the detail 
+view of that post.
+
+Delete View: 
+Ask the user for confirmation before deleting a post. Once confirmed, 
+the post should be removed from the database and the user should be 
+redirected to the list view.
 
 6. Static Files and Styling:
 Add a base template that includes a common header and footer for all pages.
