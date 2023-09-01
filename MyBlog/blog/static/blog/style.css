@@ -1,0 +1,23 @@
+.body-bg {
+    background-image: url('/static/blog/images/light-grey-background.jpg');
+}
+
+h1, footer {
+    background-color: rgb(89, 103, 117);
+    color: rgb(219, 219, 219);
+}
+
+.content {
+    font-size: large;
+}
+
+.save-button {
+    background-color: rgb(95, 152, 95);
+    width: 7.2cm;
+    height: 0.6cm;
+    margin-bottom: 0.2cm;
+}
+
+.save-button:hover {
+    background-color: rgb(2, 200, 2);
+}
