@@ -39,3 +39,26 @@ class PostDeleteView(DeleteView):
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('blog:post_list')
 
+
+class PostSearchView(ListView):
+    model = Post
+    template_name = 'blog/post_search_results.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')  # Get the search query from the URL parameter
+        if query:
+            return Post.objects.filter(title__icontains=query)
+        return Post.objects.none()
+
+
+class PostSearchView(ListView):
+    model = Post
+    template_name = 'blog/post_search.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')  # Get the search query from the URL parameter
+        if query:
+            return Post.objects.filter(title__icontains=query)
+        return Post.objects.none()  # R

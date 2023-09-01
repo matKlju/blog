@@ -1,4 +1,4 @@
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, PostSearchView
 from django.urls import path
 
 app_name = 'blog'
@@ -23,4 +23,6 @@ urlpatterns = [
     path('<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
     path('blog/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
     path('posts/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
+
+    path('search/', PostSearchView.as_view(), name='post_search')
 ]

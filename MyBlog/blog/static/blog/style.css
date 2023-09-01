@@ -1,3 +1,7 @@
+.title {
+    color: rgb(255, 138, 138);
+}
+
 .body-bg {
     background-image: url('/static/blog/images/light-grey-background.jpg');
 }
@@ -5,6 +9,7 @@
 h1, footer {
     background-color: rgb(89, 103, 117);
     color: rgb(219, 219, 219);
+    margin-top: 0.4cm;
 }
 
 .content {
@@ -20,4 +25,27 @@ h1, footer {
 
 .save-button:hover {
     background-color: rgb(2, 200, 2);
+}
+
+.delete-button {
+    background-color: lightcoral;
+    margin-bottom: 0.2cm;
+}
+
+.delete-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.cancel-button {
+    background-color:yellow;
+}
+
+.cancel-button:hover {
+    background-color: rgb(2, 200, 2);
+}
+
+
+.search_ribbon {
+    margin-bottom: 0.4cm;
 }

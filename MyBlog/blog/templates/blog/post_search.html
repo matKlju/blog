@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Search</h2>
+    <form class="search_ribbon" method="GET" action="{% url 'blog:post_search' %}">
+        <input type="text" name="q" placeholder="Search by title">
+        <button  class="search-button" type="submit">Search</button>
+        
+    </form>
+    <strong>Results:</strong>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
