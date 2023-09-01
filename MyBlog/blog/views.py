@@ -1,6 +1,8 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .serializers import PostSerializer
 from django.urls import reverse_lazy
+from rest_framework.generics import ListAPIView, RetrieveAPIView
+from .models import Post
 
 
 class PostListView(ListView):
@@ -61,4 +63,15 @@ class PostSearchView(ListView):
         query = self.request.GET.get('q')  # Get the search query from the URL parameter
         if query:
             return Post.objects.filter(title__icontains=query)
-        return Post.objects.none()  # R
+        return Post.objects.none()
+
+
+
+class PostListAPIView(ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+
+class PostRetrieveAPIView(RetrieveAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer

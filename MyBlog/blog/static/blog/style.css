@@ -7,9 +7,10 @@
 }
 
 h1, footer {
-    background-color: rgb(89, 103, 117);
-    color: rgb(219, 219, 219);
+    background: linear-gradient(to left, #303030, #a3a3a3, #e3e3e3);
+    color: rgb(0, 0, 0);
     margin-top: 0.4cm;
+
 }
 
 .content {
